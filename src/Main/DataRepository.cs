@@ -10,7 +10,7 @@
   {
     public IEnumerable<PersonModel> GetPersonModels()
     {
-      // TODO::Replace with your database access (or Model accesss)
+      // TODO::Replace with your database access
 
       int personCount = 20;
       var persons = new List<PersonModel>();
