@@ -1,0 +1,59 @@
+﻿<Window x:Class="Main.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Main"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+  <local:MasterDetailsControl Grid.Column="0"
+                        ItemsSource="{Binding PersonViewModel.PersonItems}"
+                        SelectedDetailsItem="{Binding PersonViewModel.SelectedPersonItem}">
+    <local:MasterDetailsControl.ItemTemplate>
+      <DataTemplate DataType="{x:Type local:PersonModel}">
+        <TextBlock Text="{Binding Name}" />
+      </DataTemplate>
+    </local:MasterDetailsControl.ItemTemplate>
+
+    <local:MasterDetailsControl.SelectedDetailsItemTemplate>
+      <DataTemplate DataType="{x:Type local:PersonModel}">
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+          </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+          </Grid.RowDefinitions>
+          <TextBlock Grid.Column="0" 
+                     Grid.Row="0"
+                     Text="Person ID:" />
+          <TextBlock Grid.Column="1"
+                     Grid.Row="0"
+                     Text="{Binding PersonID}" />
+          <TextBlock Grid.Column="0"
+                     Grid.Row="1"
+                     Text="Name:" />
+          <TextBlock Grid.Column="1"
+                     Grid.Row="1"
+                     Text="{Binding Name}" />
+          <TextBlock Grid.Column="0"
+                     Grid.Row="2"
+                     Text="Surname:" />
+          <TextBlock Grid.Column="1"
+                     Grid.Row="2"
+                     Text="{Binding Surname}" />
+          <TextBlock Grid.Column="0"
+                     Grid.Row="3"
+                     Text="PersonAge:" />
+          <TextBlock Grid.Column="1"
+                     Grid.Row="3"
+                     Text="{Binding PersonAge}" />
+        </Grid>
+      </DataTemplate>
+    </local:MasterDetailsControl.SelectedDetailsItemTemplate>
+  </local:MasterDetailsControl>
+</Window>
