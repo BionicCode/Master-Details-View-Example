@@ -1,1 +1,1 @@
-# Master-Details-View-Example
+# WPF Master-Details View-Example
